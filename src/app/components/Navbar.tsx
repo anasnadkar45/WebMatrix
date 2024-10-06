@@ -1,0 +1,119 @@
+"use client";
+
+import { useState, useEffect } from "react";
+import { motion, useScroll, useMotionValueEvent } from "framer-motion";
+import Image from "next/image";
+import { Menu } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import Logo from "../public/Logo.svg";
+import Link from "next/link";
+
+export const Navbar = () => {
+  const [isScrolled, setIsScrolled] = useState(false);
+  const { scrollY } = useScroll();
+
+  useMotionValueEvent(scrollY, "change", (latest) => {
+    setIsScrolled(latest > 50);
+  });
+
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  if (!isMounted) {
+    return null;
+  }
+
+  return (
+    <motion.nav
+      className={`fixed top-2 left-0 right-0 z-50 transition-all duration-300 ${
+        isScrolled ? "bg-background/80 backdrop-blur-md" : "bg-transparent"
+      }`}
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
+      transition={{ duration: 0.3 }}
+    >
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="relative py-3 px-3 bg-card rounded-md border border-slate-400/50">
+          <div className="flex justify-between items-center">
+            <motion.div
+              className="font-bold text-xl"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <Link href={"/"} className="flex gap-2 items-center">
+                <Image src={Logo} alt="Logo" className="size-7" />
+                <h1>WebMetrix</h1>
+              </Link>
+            </motion.div>
+            <div className="hidden md:flex space-x-5">
+              <a href="#home" className="text-base font-medium hover:text-primary">
+                Home
+              </a>
+              <a href="#about" className="text-base font-medium hover:text-primary">
+                About
+              </a>
+              <a href="#services" className="text-base font-medium hover:text-primary">
+                Services
+              </a>
+              <a href="#projects" className="text-base font-medium hover:text-primary">
+                Projects
+              </a>
+              <a href="#contact" className="text-base font-medium hover:text-primary">
+                Contact
+              </a>
+            </div>
+            <Link href={"https://cal.com/anas-nadkar-45/30min"} className="hidden md:block">
+              <Button className="whitespace-nowrap" variant="default">
+                Book Call
+              </Button>
+            </Link>
+            <div className="md:hidden">
+              <Sheet>
+                <SheetTrigger asChild>
+                  <Button variant="outline" size="icon">
+                    <Menu className="h-6 w-6" />
+                    <span className="sr-only">Open menu</span>
+                  </Button>
+                </SheetTrigger>
+                <SheetContent side="right">
+                  <nav className="flex flex-col gap-4">
+                    <a href="#home" className="text-lg font-medium hover:text-primary">
+                      Home
+                    </a>
+                    <a href="#about" className="text-lg font-medium hover:text-primary">
+                      About
+                    </a>
+                    <a href="#services" className="text-lg font-medium hover:text-primary">
+                      Services
+                    </a>
+                    <a href="#projects" className="text-lg font-medium hover:text-primary">
+                      Projects
+                    </a>
+                    <a href="#contact" className="text-lg font-medium hover:text-primary">
+                      Contact
+                    </a>
+                    <Button className="mt-4" variant="default">
+                      Get Started
+                    </Button>
+                  </nav>
+                </SheetContent>
+              </Sheet>
+            </div>
+          </div>
+          {/* Inner shadow effect */}
+          <div className="absolute inset-0 shadow-[inset_0_0_30px_rgba(0,0,0,0.3)] dark:shadow-[inset_0_0_30px_rgba(255,255,255,0.1)] rounded-md z-10 pointer-events-none" />
+
+          {/* Hover effect */}
+          <motion.div
+            className="absolute inset-0 bg-gradient-to-r from-gray-800 via-gray-700 to-gray-800 opacity-0 transition-opacity duration-300 rounded-md z-5 pointer-events-none"
+            whileHover={{ opacity: 0.3 }}
+          />
+        </div>
+      </div>
+    </motion.nav>
+  );
+};
