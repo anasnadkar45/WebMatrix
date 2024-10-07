@@ -8,7 +8,7 @@ import { Switch } from "@/components/ui/switch"; // Import the switch component 
 
 const PricingCard = ({ title, price, features, isPopular, currencySymbol }: any) => (
     <motion.div
-        className={`bg-card p-8 rounded-2xl shadow-lg z-20 ${isPopular ? 'border-2 border-primary' : 'border border-border'
+        className={`bg-card flex flex-col justify-between p-4 rounded-2xl shadow-lg z-20 ${isPopular ? 'border-2 border-primary' : 'border border-border'
             } relative overflow-hidden`}
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -22,23 +22,25 @@ const PricingCard = ({ title, price, features, isPopular, currencySymbol }: any)
                 </div>
             </div>
         )}
-        <h3 className="text-2xl font-bold mb-4">{title}</h3>
-        <div className="mb-6">
-            <span className="text-4xl font-bold">{currencySymbol}{price}</span>
-            <span className="text-muted-foreground">/{isPopular ? 'project' : 'project'}</span>
+        <div>
+            <h3 className="text-2xl font-bold mb-4">{title}</h3>
+            <div className="mb-6">
+                <span className="text-4xl font-bold">{currencySymbol}{price}</span>
+                <span className="text-muted-foreground">/{isPopular ? 'project' : 'project'}</span>
+            </div>
+            <ul className="space-y-3 mb-8">
+                {features.map((feature, index) => (
+                    <li key={index} className="flex items-center">
+                        {feature.included ? (
+                            <Check className="h-5 w-5 text-green-500 mr-2 flex-shrink-0" />
+                        ) : (
+                            <X className="h-5 w-5 text-red-500 mr-2 flex-shrink-0" />
+                        )}
+                        <span className={feature.included ? '' : 'text-muted-foreground'}>{feature.text}</span>
+                    </li>
+                ))}
+            </ul>
         </div>
-        <ul className="space-y-3 mb-8">
-            {features.map((feature, index) => (
-                <li key={index} className="flex items-center">
-                    {feature.included ? (
-                        <Check className="h-5 w-5 text-green-500 mr-2 flex-shrink-0" />
-                    ) : (
-                        <X className="h-5 w-5 text-red-500 mr-2 flex-shrink-0" />
-                    )}
-                    <span className={feature.included ? '' : 'text-muted-foreground'}>{feature.text}</span>
-                </li>
-            ))}
-        </ul>
         <Link href={'https://cal.com/anas-nadkar-45/30min'}>
             <Button className="w-full" variant={isPopular ? "default" : "outline"}>
                 Get Started
@@ -53,6 +55,21 @@ export const PricingSection = () => {
     const plans = [
         {
             title: "Basic Development",
+            price: isIndianClient ? 8000 : 500, // Lower price for Indian clients
+            features: [
+                { text: "2 Pages Website", included: true },
+                { text: "Mobile Responsive Design", included: true },
+                { text: "Basic SEO Setup", included: true },
+                { text: "Basic Animations", included: true },
+                { text: "Componentized Structure", included: true },
+                { text: "E-commerce Integration", included: false },
+                { text: "Advanced Animations", included: false },
+                { text: "Custom Features", included: false },
+            ],
+            isPopular: false,
+        },
+        {
+            title: "Intermidiate Development",
             price: isIndianClient ? 25000 : 1000, // Lower price for Indian clients
             features: [
                 { text: "5 Pages Website", included: true },
@@ -127,11 +144,11 @@ export const PricingSection = () => {
                     <span className="ml-2">{isIndianClient ? "Indian Client" : "Foreign Client"}</span>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative z-20">
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 relative z-20">
                     {plans.map((plan, index) => (
-                        <PricingCard 
-                            key={index} 
-                            {...plan} 
+                        <PricingCard
+                            key={index}
+                            {...plan}
                             currencySymbol={isIndianClient ? "₹" : "$"} // Change currency symbol based on selection 
                         />
                     ))}

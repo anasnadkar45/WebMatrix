@@ -8,10 +8,10 @@ import { Code, Palette, Zap, Globe, Shield, Headphones } from "lucide-react";
 const FeatureCard = ({ icon: Icon, title, description }: any) => (
     <motion.div
         className="bg-card p-6 shadow-lg border relative transition-all duration-300"
-        initial={{ opacity: 0, y: 0 }}
+        initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        whileHover={{ scale: 1.05 }}
+        whileHover={{ y: -10, transition: { duration: 0.2 } }}
         whileTap={{ scale: 0.95 }}
         style={{
             borderImage:
@@ -77,7 +77,7 @@ export const FeaturesSection = () => {
     ];
 
     return (
-        <section className="overflow-hidden px-4 py-4" id="service">
+        <section className="overflow-hidden px-3 py-4" id="service">
             <div className="container mx-auto">
                 <motion.div
                     initial={{ filter: "blur(12px)", opacity: 0, y: 24 }}

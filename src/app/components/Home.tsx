@@ -38,7 +38,7 @@ export const Home = () => {
     ]
 
     return (
-        <div id='home' className="relative min-h-fit px-4 py-12 sm:pt-36 w-full overflow-hidden bg-background mt-12 sm:mt-0">
+        <div id='home' className="relative min-h-fit px-3 py-12 sm:pt-36 w-full overflow-hidden bg-background ">
             {/* Grid background with top and bottom fade */}
             <div
                 className="absolute inset-0 z-0"
@@ -68,7 +68,7 @@ export const Home = () => {
             />
 
             {/* Content */}
-            <div className="container mx-auto relative z-20 mb-12 flex flex-col items-center justify-center min-h-fit ">
+            <div className="relative z-20 mb-12 flex flex-col items-center justify-center min-h-fit ">
                 <AnimatedHeadline text="Elevate Your Web Presence" />
                 <motion.p
                     className="text-sm sm:text-lg text-center mb-8 max-w-2xl text-muted-foreground"
@@ -112,8 +112,10 @@ export const Home = () => {
                         <motion.div
                             key={service.title}
                             className="relative wg bg-card rounded-2xl shadow-lg shadow-primary/10 overflow-hidden"
-                            whileHover={{ scale: 1.05 }}
-                            whileTap={{ scale: 0.95 }}
+                            initial={{ opacity: 0, y: 50 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.5 }}
+                            whileHover={{ y: -10, transition: { duration: 0.2 } }}
                         >
                             <div className='p-6'>
                                 <service.icon className="h-12 w-12 text-primary mb-4" />

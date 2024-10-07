@@ -57,10 +57,10 @@ export const ProjectSection = () => {
                     {projects.map((project, index) => (
                         <motion.div
                             key={index}
-                            initial={{ opacity: 0, scale: 0.9 }}
-                            animate={{ opacity: 1, scale: 1 }}
-                            transition={{ duration: 0.8, delay: index * 0.2 }}
-                            whileHover={{ scale: 1.05 }}
+                            initial={{ opacity: 0, y: 50 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.5 }}
+                            whileHover={{ y: -10, transition: { duration: 0.2 } }}
                             className="relative bg-card rounded-xl shadow-lg overflow-hidden transition-transform duration-300 transform hover:scale-105"
                         >
                             <div className="p-6 relative z-20">
