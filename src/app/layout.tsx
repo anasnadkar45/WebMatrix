@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
 import "./globals.css";
 import { ThemeProvider } from "./components/theme-provider";
 import { Navbar } from "./components/Navbar";
-import { Inter, Lato, Urbanist, Titillium_Web, Amaranth } from "next/font/google";
+import { Titillium_Web, Amaranth } from "next/font/google";
 import { cn } from "@/lib/utils";
 import Footer from "./components/Footer";
 import { SocialHandles } from "./components/SocialHandles";
@@ -12,21 +11,9 @@ import Head from "next/head";
 
 // Load custom fonts
 
-const lato = Lato({ weight: "400", subsets: ["latin"] });
-const urbanist = Urbanist({ weight: "400", subsets: ["latin"] });
 const titillium_Web = Titillium_Web({ weight: "400", subsets: ["latin"] });
 export const amaranth = Amaranth({ weight: "400", subsets: ["latin"] });
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
 
 // Metadata for the app
 export const metadata: Metadata = {
