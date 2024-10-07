@@ -49,7 +49,7 @@ export const ProjectSection = () => {
                         Projects Created
                     </h2>
                     <p className="text-muted-foreground max-w-2xl mx-auto">
-                        Discover the projects we've built for our clients. Each project is crafted with attention to detail and client satisfaction in mind.
+                        Discover the projects we have built for our clients. Each project is crafted with attention to detail and client satisfaction in mind.
                     </p>
                 </motion.div>
 

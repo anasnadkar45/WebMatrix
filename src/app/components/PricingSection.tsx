@@ -6,7 +6,20 @@ import { Button } from "@/components/ui/button";
 import Link from 'next/link';
 import { Switch } from "@/components/ui/switch"; // Import the switch component from Shadcn UI
 
-const PricingCard = ({ title, price, features, isPopular, currencySymbol }: any) => (
+interface Feature {
+    text: string;
+    included: boolean;
+}
+
+interface PricingCardProps {
+    title: string;
+    price: number;
+    features: Feature[];
+    isPopular: boolean;
+    currencySymbol: string;
+}
+
+const PricingCard = ({ title, price, features, isPopular, currencySymbol }:PricingCardProps) => (
     <motion.div
         className={`bg-card flex flex-col justify-between p-4 rounded-2xl shadow-lg z-20 ${isPopular ? 'border-2 border-primary' : 'border border-border'
             } relative overflow-hidden`}

@@ -3,11 +3,18 @@ import Image from "next/image";
 import React from "react";
 import Logo from '../public/Logo.svg';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
-import {motion} from 'framer-motion'
+import { motion } from 'framer-motion';
 import { MdEmail } from "react-icons/md";
 import { Github, Instagram, Linkedin, Twitter } from "lucide-react";
 
-const SocialIcon = ({ Icon, href, label }: any) => (
+// Define the type for the SocialIcon props
+interface SocialIconProps {
+    Icon: React.ComponentType<{ className?: string }>;
+    href: string;
+    label: string;
+}
+
+const SocialIcon: React.FC<SocialIconProps> = ({ Icon, href, label }) => (
     <TooltipProvider>
         <Tooltip>
             <TooltipTrigger asChild>
@@ -27,7 +34,7 @@ const SocialIcon = ({ Icon, href, label }: any) => (
             </TooltipContent>
         </Tooltip>
     </TooltipProvider>
-)
+);
 
 const Footer = () => {
     return (

@@ -3,7 +3,6 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import { ChevronRight, Code, Palette, Zap } from 'lucide-react'
-import BlurHeroDemo from './BlurHeroDemo'
 import { Button } from "@/components/ui/button"
 import Link from 'next/link'
 
@@ -117,7 +116,7 @@ export const Home = () => {
                             transition={{ duration: 0.5 }}
                             whileHover={{ y: -10, transition: { duration: 0.2 } }}
                         >
-                            <div className='p-6'>
+                            <div className='p-6' key={index}>
                                 <service.icon className="h-12 w-12 text-primary mb-4" />
                                 <h2 className="text-xl font-semibold mb-2">{service.title}</h2>
                                 <p className="text-muted-foreground">{service.description}</p>

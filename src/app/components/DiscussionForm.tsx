@@ -78,7 +78,7 @@ const DiscussionForm = () => {
                 >
                     <h2 className="text-3xl md:text-4xl text-center font-bold mb-4">Send Us a Message</h2>
                     <p className="text-muted-foreground max-w-2xl mx-auto">
-                        Have questions? Send us a message via WhatsApp, and we'll get back to you soon!
+                        Have questions? Send us a message via WhatsApp, and we will get back to you soon!
                     </p>
                 </motion.div>
 

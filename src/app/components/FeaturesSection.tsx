@@ -4,8 +4,15 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Code, Palette, Zap, Globe, Shield, Headphones } from "lucide-react";
 
+// Feature Card Props Type
+interface FeatureCardProps {
+    icon: React.ComponentType<{ className?: string }>;
+    title: string;
+    description: string;
+}
+
 // Feature Card Component
-const FeatureCard = ({ icon: Icon, title, description }: any) => (
+const FeatureCard: React.FC<FeatureCardProps> = ({ icon: Icon, title, description }) => (
     <motion.div
         className="bg-card p-6 shadow-lg border relative transition-all duration-300"
         initial={{ opacity: 0, y: 50 }}
@@ -26,7 +33,7 @@ const FeatureCard = ({ icon: Icon, title, description }: any) => (
 );
 
 // Features Section Component
-export const FeaturesSection = () => {
+export const FeaturesSection: React.FC = () => {
     const features = [
         {
             icon: Code,
@@ -103,5 +110,4 @@ export const FeaturesSection = () => {
             </div>
         </section>
     );
-
 };
