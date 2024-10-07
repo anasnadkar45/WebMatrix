@@ -77,7 +77,7 @@ export const FeaturesSection = () => {
     ];
 
     return (
-        <section className="overflow-hidden" id="about">
+        <section className="overflow-hidden px-4 py-4" id="service">
             <div className="container mx-auto">
                 <motion.div
                     initial={{ filter: "blur(12px)", opacity: 0, y: 24 }}

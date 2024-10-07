@@ -38,7 +38,7 @@ export const Home = () => {
     ]
 
     return (
-        <div id='home' className="relative min-h-fit py-12 sm:pt-36 w-full overflow-hidden bg-background mt-12 sm:mt-0">
+        <div id='home' className="relative min-h-fit px-4 py-12 sm:pt-36 w-full overflow-hidden bg-background mt-12 sm:mt-0">
             {/* Grid background with top and bottom fade */}
             <div
                 className="absolute inset-0 z-0"
@@ -97,7 +97,7 @@ export const Home = () => {
                 >
                     <Link href={'https://cal.com/anas-nadkar-45/30min'}>
                         <Button size="lg" className="text-lg px-6 py-3">
-                            Get Started <ChevronRight className="ml-2 h-5 w-5" />
+                            Grow My Business <ChevronRight className="ml-2 h-5 w-5" />
                         </Button>
                     </Link>
                 </motion.div>

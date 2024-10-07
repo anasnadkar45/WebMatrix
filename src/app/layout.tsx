@@ -6,6 +6,7 @@ import { Navbar } from "./components/Navbar";
 import { Inter, Lato, Urbanist, Titillium_Web, Amaranth } from "next/font/google";
 import { cn } from "@/lib/utils";
 import Footer from "./components/Footer";
+import { SocialHandles } from "./components/SocialHandles";
 
 // Load custom fonts
 
@@ -50,7 +51,7 @@ export default function RootLayout({
           <div className="relative max-w-7xl mx-auto px-4 py-4 sm:px-6 lg:px-8">
             {/* Navbar */}
             <Navbar />
-
+            <SocialHandles />
             {/* Page Content */}
             <main className="pt-16">
               {children}

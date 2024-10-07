@@ -7,22 +7,42 @@ import { Button } from "@/components/ui/button";
 
 const faqData = [
     {
-        question: "What services do you offer?",
-        answer: "We offer a wide range of services including web development of different types.",
+      question: "What types of website development services do you offer?",
+      answer:
+        "We offer a full range of website development services including custom websites, e-commerce platforms, single-page applications, and complex web solutions tailored to your needs.",
     },
     {
-        question: "How can I contact support?",
-        answer: "You can contact support via email at webmetrix45@gmail.com or by using the contact form on our website.",
+      question: "How does the development process work?",
+      answer:
+        "Our development process starts with understanding your requirements, followed by designing, developing, and testing the website. We collaborate with you at every step to ensure your vision is met.",
     },
     {
-        question: "What is your refund policy?",
-        answer: "We have a 30-day refund policy for all our services. Please check our terms for more details.",
+      question: "What if I just need a single feature or page developed?",
+      answer:
+        "Whether you need a complete website or just a single feature or landing page, we’re happy to take on both large and small projects.",
     },
     {
-        question: "Do you provide ongoing support?",
-        answer: "Yes, we provide ongoing support and maintenance for all our projects.",
+      question: "How many revisions do I get during development?",
+      answer:
+        "We offer unlimited revisions during the design phase and up to 3 rounds of revisions after development, ensuring that your website meets your expectations.",
     },
-];
+    {
+      question: "Why shouldn't I just hire a full-time developer?",
+      answer:
+        "Hiring us gives you flexibility and access to a team of experts without the long-term commitment and overhead costs of a full-time employee. You can scale your project up or down as needed.",
+    },
+    {
+      question: "Do you offer a refund?",
+      answer:
+        "Yes, we have a 30-day refund policy if you are not satisfied with our services. Please review our refund policy for detailed terms and conditions.",
+    },
+    {
+      question: "Are there certain types of development projects you don't work on?",
+      answer:
+        "We do not work on projects involving illegal activities, unethical practices, or anything that violates our terms of service. We’re happy to discuss your project and assess if it's a good fit for us.",
+    },
+  ];
+  
 
 const FAQSection = () => {
     const [openIndex, setOpenIndex] = useState<number | null>(null);

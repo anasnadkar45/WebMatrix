@@ -32,28 +32,35 @@ const DiscussionForm = () => {
         e.preventDefault();
         setLoading(true);
         setFeedbackMessage(null); // Clear previous feedback message
-
+    
         const { name, email, subject, serviceType, message } = formData;
-
+    
         // Create the WhatsApp message
         const whatsappMessage = `*Name:* ${name}\n*Email:* ${email}\n*Subject:* ${subject}\n*Service Type:* ${serviceType}\n*Message:* ${message}`;
-
+    
         // Encode the message for the URL
         const encodedMessage = encodeURIComponent(whatsappMessage);
-
-        // WhatsApp API URL
-        const whatsappUrl = `https://api.whatsapp.com/send?phone=8275851083&text=${encodedMessage}`;
-
+    
+        // WhatsApp API URL with correct phone number format
+        const whatsappUrl = `https://api.whatsapp.com/send?phone=918275851083&text=${encodedMessage}`;
+    
         // Open the WhatsApp chat
         window.open(whatsappUrl, "_blank");
-
+    
         // Reset form data
-        setFormData({ name: "", email: "", subject: "", serviceType: "general inquiry", message: "" });
+        setFormData({
+            name: "",
+            email: "",
+            subject: "",
+            serviceType: "general inquiry",
+            message: "",
+        });
         setLoading(false); // Reset loading state after message is sent
-
+    
         // Provide user feedback
         setFeedbackMessage("Your message has been sent! We'll get back to you soon.");
     };
+    
 
     return (
         <section id="contact" className="relative py-12 bg-gradient-to-br from-background via-background to-80% to-background z-10">

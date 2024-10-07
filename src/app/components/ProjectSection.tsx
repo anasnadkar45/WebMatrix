@@ -63,7 +63,7 @@ export const ProjectSection = () => {
                             whileHover={{ scale: 1.05 }}
                             className="relative bg-card rounded-xl shadow-lg overflow-hidden transition-transform duration-300 transform hover:scale-105"
                         >
-                            <div className="p-6">
+                            <div className="p-6 relative z-20">
                                 <div className="overflow-hidden rounded-lg mb-4">
                                     <Image
                                         src={project.imgSrc}

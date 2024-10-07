@@ -1,7 +1,33 @@
+"use client"
 import Image from "next/image";
 import React from "react";
 import Logo from '../public/Logo.svg';
-import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from "react-icons/fa";
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
+import {motion} from 'framer-motion'
+import { MdEmail } from "react-icons/md";
+import { Github, Instagram, Linkedin, Twitter } from "lucide-react";
+
+const SocialIcon = ({ Icon, href, label }: any) => (
+    <TooltipProvider>
+        <Tooltip>
+            <TooltipTrigger asChild>
+                <motion.a
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-muted-foreground hover:text-primary transition-colors duration-200"
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.9 }}
+                >
+                    <Icon className="h-6 w-6" />
+                </motion.a>
+            </TooltipTrigger>
+            <TooltipContent>
+                <p>{label}</p>
+            </TooltipContent>
+        </Tooltip>
+    </TooltipProvider>
+)
 
 const Footer = () => {
     return (
@@ -16,19 +42,12 @@ const Footer = () => {
                     <p>
                         WebMetrix is a leading web development agency, helping businesses of all sizes establish their online presence with cutting-edge designs and innovative technologies.
                     </p>
-                    <div className="flex space-x-4 mt-4">
-                        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
-                            <FaFacebook size={24} className="hover:text-white" />
-                        </a>
-                        <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
-                            <FaTwitter size={24} className="hover:text-white" />
-                        </a>
-                        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
-                            <FaInstagram size={24} className="hover:text-white" />
-                        </a>
-                        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
-                            <FaLinkedin size={24} className="hover:text-white" />
-                        </a>
+                    <div className="flex items-center gap-4">
+                        <SocialIcon Icon={MdEmail} href="mailto:webmetrix45@gmail.com" label="Email" />
+                        <SocialIcon Icon={Twitter} href="https://twitter.com/anasnadkar45" label="Twitter" />
+                        <SocialIcon Icon={Instagram} href="https://www.instagram.com/anasnadkar45/profilecard/?igsh=MTM4dWoxOGdua3U5MA==" label="Instagram" />
+                        <SocialIcon Icon={Linkedin} href="https://www.linkedin.com/in/anas-nadkar-2765121a9/" label="LinkedIn" />
+                        <SocialIcon Icon={Github} href="https://github.com/anasnadkar45/" label="GitHub" />
                     </div>
                 </div>
 

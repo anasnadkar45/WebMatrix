@@ -29,9 +29,8 @@ export const Navbar = () => {
 
   return (
     <motion.nav
-      className={`fixed top-2 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? "bg-background/80 backdrop-blur-md" : "bg-transparent"
-      }`}
+      className={`fixed top-2 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? "bg-background/80 backdrop-blur-md" : "bg-transparent"
+        }`}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.3 }}
@@ -53,11 +52,11 @@ export const Navbar = () => {
               <a href="#home" className="text-base font-medium hover:text-primary">
                 Home
               </a>
-              <a href="#about" className="text-base font-medium hover:text-primary">
-                About
-              </a>
-              <a href="#services" className="text-base font-medium hover:text-primary">
+              <a href="#service" className="text-base font-medium hover:text-primary">
                 Services
+              </a>
+              <a href="#pricing" className="text-base font-medium hover:text-primary">
+                Pricing
               </a>
               <a href="#projects" className="text-base font-medium hover:text-primary">
                 Projects
@@ -68,7 +67,7 @@ export const Navbar = () => {
             </div>
             <Link href={"https://cal.com/anas-nadkar-45/30min"} className="hidden md:block">
               <Button className="whitespace-nowrap" variant="default">
-                Book Call
+                Grow My Business
               </Button>
             </Link>
             <div className="md:hidden">
@@ -81,24 +80,26 @@ export const Navbar = () => {
                 </SheetTrigger>
                 <SheetContent side="right">
                   <nav className="flex flex-col gap-4">
-                    <a href="#home" className="text-lg font-medium hover:text-primary">
+                    <a href="#home" className="text-base font-medium hover:text-primary">
                       Home
                     </a>
-                    <a href="#about" className="text-lg font-medium hover:text-primary">
-                      About
-                    </a>
-                    <a href="#services" className="text-lg font-medium hover:text-primary">
+                    <a href="#service" className="text-base font-medium hover:text-primary">
                       Services
                     </a>
-                    <a href="#projects" className="text-lg font-medium hover:text-primary">
+                    <a href="#pricing" className="text-base font-medium hover:text-primary">
+                      Pricing
+                    </a>
+                    <a href="#projects" className="text-base font-medium hover:text-primary">
                       Projects
                     </a>
-                    <a href="#contact" className="text-lg font-medium hover:text-primary">
+                    <a href="#contact" className="text-base font-medium hover:text-primary">
                       Contact
                     </a>
-                    <Button className="mt-4" variant="default">
-                      Get Started
-                    </Button>
+                    <Link href={"https://cal.com/anas-nadkar-45/30min"} >
+                      <Button className="whitespace-nowrap" variant="default">
+                        Grow My Business
+                      </Button>
+                    </Link>
                   </nav>
                 </SheetContent>
               </Sheet>
